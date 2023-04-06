@@ -1,2 +1,2 @@
-# AI-ML
+# AI/ML
 AI/ML related topics
