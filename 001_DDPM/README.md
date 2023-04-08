@@ -8,6 +8,10 @@ Diffusion generative models are composed of two opposite processes i.e., **Forwa
 
 ![forwardbackward2](images/denoising-diffusion-probabilistic-models-forward_and_backward_equations.png)
 
+**Inference**:
+
+[inference.webm](https://user-images.githubusercontent.com/57580923/230726862-7a1fb188-1c50-4551-8da4-e5dbf6ffbd58.webm)
+
 ## Forward Diffusion Process
 
 1. In the "Forward Diffusion" process, we slowly and iteratively add noise to (corrupt) the images in our training set such that they "move out or move away" from their existing subspace.
