@@ -1,4 +1,4 @@
-# Stable Diffusion – A New Paradigm in Generative AI
+# Stable Diffusion - A New Paradigm in Generative AI
 
 Diffusion models are now the go-to models for generating images. As diffusion models allow us to condition image generation with prompts, we can generate images of our choice. Among these text-conditioned diffusion models, Stable Diffusion is the most famous because of its open-source nature.
 
