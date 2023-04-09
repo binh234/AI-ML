@@ -1,12 +1,12 @@
 # Stable Diffusion - A New Paradigm in Generative AI
 
-Diffusion models are now the go-to models for generating images. As diffusion models allow us to condition image generation with prompts, we can generate images of our choice. Among these text-conditioned diffusion models, Stable Diffusion is the most famous because of its open-source nature.
+Diffusion models are now the go-to models for generating images. As diffusion models allow us to condition image generation with prompts, we can create images of our choice. Stable Diffusion is the most famous because of its open-source nature.
 
 ## What is Stable Diffusion?
 
 Originating from the Latent Diffusion Model (LDM), which was the original text-to-image model, Stable Diffusion is an extension. This means that Stable Diffusion is also a **text-to-image** model.
 
-Stable Diffusion works on the latent space of images rather than on the pixel space of images. Other generative diffusion models like [DALL-E 2](https://openai.com/product/dall-e-2) and [Imagen](https://imagen.research.google/) work on the pixel space of images. This makes them slower and, in the process, consumes more memory.
+Stable Diffusion works on the latent space rather than on the pixel space of images. Other generative diffusion models like [DALL-E 2](https://openai.com/product/dall-e-2) and [Imagen](https://imagen.research.google/) work on the pixel space. This makes them slower and, in the process, consumes more memory.
 
 ![latent-space](images/image-latent-space.png)
 
@@ -24,7 +24,7 @@ But all the components are involved during both training and inference. During t
 
 High level speaking, a pre-trained text encoder converts the text prompt into embeddings.
 
-The UNet model acts on the latent space information from image conditioned by text embeddings as the noise predictor.
+The UNet model acts on the latent space information from the image conditioned by text embeddings as the noise predictor.
 
 The autoencoder-decoder has two tasks. The encoder generates the latent space information from the original image pixels and the decoder predicts the final image from the text-conditioned latent space.
 
@@ -35,9 +35,9 @@ The autoencoder-decoder has two tasks. The encoder generates the latent space in
 Training a Stable Diffusion model involves four stages:
 
 1. Create the token embeddings from the prompt. From a training perspective, we will call the text prompt the **caption**.
-2. Generate the latent space from original image using the encoder part of the autoencoder model. The latent space will then go through a Diffusion process to generate noisy image.
-3. Pass the noisy image to the UNet conditioned by the text embeddings. This is called text conditioned latent space.
-4. The UNet entirely works on the latent space.The UNet predicts the noise added to the latent space and tries to denoise it.
+2. Generate the latent space from the original image using the encoder part of the autoencoder model. The latent space will then go through a Diffusion process to generate the noisy image.
+3. Pass the noisy image to the UNet conditioned by the text embeddings. This is called text-conditioned latent space.
+4. The UNet entirely works on the latent space. The UNet predicts the noise added to the latent space and tries to denoise it.
 
 ### Text encoder
 
@@ -49,11 +49,11 @@ Generally, in all diffusion models, the text encoder is a **large pretrained tra
 
 Before the UNet, the encoder part of the autoencoder-decoder model converts the input image into its **latent representation**.
 
-Now, it’s important to remember that the UNet acts exclusively on the latent space and does not deal with the original image pixels at all. It is, of course conditioned by the text caption. The process of adding the caption information to the latent space is called **text conditioning**. Besides text conditioning, we can also condition the same latent space with semantic maps or other images.
+Now, it’s important to remember that the UNet acts exclusively on the latent space and does not deal with the original image pixels. It is, of course, conditioned by the text caption. The process of adding the caption information to the latent space called **text conditioning**. Besides text conditioning, we can also condition the same latent space with semantic maps or other images.
 
 Not just text conditioning, the latent information also goes through a noise addition step called diffusion process, as discussed above.
 
-From all the above information, the UNet tries to predict the noise added to the image.
+After that, the UNet tries to predict the noise added to the image.
 
 ![UNet](images/stable-diffusion-unet-noise-prediction.png)
 
@@ -67,11 +67,11 @@ Finally, the decoder part of the model is responsible for generating the final i
 
 ![Upsampling](images/stable-diffusion-autoencoder-decoder-upsampling.png)
 
-The decoder acts on a 4x64x64 dimensional vector and generates a 3x512x512 image. The original Stable Diffusion model (till version 2.0) generates a 512×512 dimensional image by default.
+The decoder acts on a 4x64x64 dimensional vector and generates a 3x512x512 image. The original Stable Diffusion model (till version 2.0) will generate a 512×512 dimensional image by default.
 
 ## The Entire Process of Training Stable Diffusion
 
-The entire process can be summarized in the following image.
+The entire process can be summarized in the following image:
 
 ![Entire training process](images/stable-diffusion-training-process-ldm-paper.png)
 
@@ -87,13 +87,13 @@ During inference, we don’t have an image with us initially. Instead, we have t
 - The UNet noise predictor.
 - And the decoder part of the autoencoder-decoder network.
 
-Instead of adding noise to an image, we start directly with pure Gaussian noise. The Stable Diffusion model then iteratively denoises it to generate the final image. We can control the number of denoising steps, which is called **sampling steps**.
+Instead of adding noise to an image, we start directly with pure Gaussian noise. The Stable Diffusion model then iteratively denoises it to generate the final image. We can control the number of denoising steps called **sampling steps**.
 
 ![inference](images/stable-diffusion-inference-expanded-unet-time-step.png)
 
 ## Different Versions of Stable Diffusion
 
-Stable Diffusion was initially introduced as version 1.4 by CompVis and RunwayML, followed by version 1.5 by RunwayML. The current owner, [StabilityAI](https://github.com/Stability-AI/stablediffusion), maintains the latest iterations, Stable Diffusion 2.0 and 2.1. These are the official versions of Stable Diffusion. In addition, there exist numerous finely tuned Stable Diffusion models that can produce images in specific art styles. We will delve into them further in the upcoming section.
+Stable Diffusion was initially introduced as version 1.4 by CompVis and RunwayML, followed by version 1.5 by RunwayML. The current owner, [StabilityAI](https://github.com/Stability-AI/stablediffusion), maintains the latest iterations, Stable Diffusion 2.0 and 2.1. These are the official versions of Stable Diffusion. In addition, there are numerous finely tuned Stable Diffusion models that can produce images in specific art styles. We will delve into them further in the upcoming section.
 
 ## Variations of Stable Diffusion
 
@@ -107,7 +107,7 @@ This variation of Stable Diffusion has been fine-tuned on images from the TV sho
 
 ## Robo Diffusion
 
-The Robo Diffusion version of Stable Diffusion can generate really cool images of robots.
+The Robo Diffusion version of Stable Diffusion can generate stunning images of robots.
 
 ![Robo](images/stable-diffusion-robo-diffusion-1-1536x769.png)
 
