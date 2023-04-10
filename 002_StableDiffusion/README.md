@@ -17,9 +17,9 @@ Diffusion models are now the go-to models for generating images. As diffusion mo
   - [Different Versions of Stable Diffusion](#different-versions-of-stable-diffusion)
   - [Variations of Stable Diffusion](#variations-of-stable-diffusion)
     - [Arcane Diffusion](#arcane-diffusion)
-  - [Robo Diffusion](#robo-diffusion)
-  - [Open Journey](#open-journey)
-  - [Mo Di Diffusion](#mo-di-diffusion)
+    - [Robo Diffusion](#robo-diffusion)
+    - [Open Journey](#open-journey)
+    - [Mo Di Diffusion](#mo-di-diffusion)
   - [References](#references)
 
 ## What is Stable Diffusion?
@@ -125,19 +125,19 @@ This variation of Stable Diffusion has been fine-tuned on images from the TV sho
 
 ![Arcane](images/ArcaneDiffusion_demo.png)
 
-## Robo Diffusion
+### Robo Diffusion
 
 The Robo Diffusion version of Stable Diffusion can generate stunning images of robots.
 
 ![Robo](images/stable-diffusion-robo-diffusion-1-1536x769.png)
 
-## Open Journey
+### Open Journey
 
 The Openjourney model can generate images in the style of [Midjourney](https://midjourney.com/).
 
 ![OpenJourney](images/stable-diffusion-openjourney-1.png)
 
-## Mo Di Diffusion
+### Mo Di Diffusion
 
 The Mo Di Diffusion model adds Disney art style to any image that we create.
 
