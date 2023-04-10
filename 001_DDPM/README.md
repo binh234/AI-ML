@@ -4,13 +4,26 @@ Diffusion probabilistic models are an exciting new area of research showing grea
 
 DDPM is a state-of-the-art generative model that has been shown to produce high-quality images with realistic textures and details. It has applications in image and video generation, as well as image and video restoration.
 
+## Table of Contents
+
+- [Denoising Diffusion Probabilistic Model](#denoising-diffusion-probabilistic-model)
+  - [Table of Contents](#table-of-contents)
+  - [Forward Diffusion Process](#forward-diffusion-process)
+  - [Reverse Diffusion Process](#reverse-diffusion-process)
+  - [Model Architecture](#model-architecture)
+  - [Experiments](#experiments)
+    - [Flowers](#flowers)
+    - [Animal 10](#animal-10)
+    - [Anime Face](#anime-face)
+    - [Anime Face 128](#anime-face-128)
+    - [Cifar10 (Paper)](#cifar10-paper)
+    - [CelebA-HQ (Paper)](#celeba-hq-paper)
+    - [LSUN-Bedroom (Paper)](#lsun-bedroom-paper)
+  - [References](#references)
+
 Diffusion generative models are composed of two opposite processes i.e., **Forward & Reverse Diffusion Process**.
 
 ![forwardbackward2](images/denoising-diffusion-probabilistic-models-forward_and_backward_equations.png)
-
-**Inference**:
-
-[inference.webm](https://user-images.githubusercontent.com/57580923/230726862-7a1fb188-1c50-4551-8da4-e5dbf6ffbd58.webm)
 
 ## Forward Diffusion Process
 
@@ -34,7 +47,7 @@ Diffusion generative models are composed of two opposite processes i.e., **Forwa
 8. The PDF that satisfies the corrupted images in the forward process differs slightly at each step.
 9. Hence, in the reverse process, we use a deep-learning model at each step to predict the PDF parameters of the forward process.
 10. And once we train the model, we can start from any point in the simple space and use the model to iteratively take steps to lead us back to the data subspace.
-11. In reverse diffusion, we iteratively perform the **"denoising"** in small steps, starting from a noisy image.
+11. In reverse diffusion, we iteratively perform the **denoising** in small steps, starting from a noisy image.
 12. This approach for training and generating new samples is much more stable than GANs and better than previous approaches like variational autoencoders (VAE) and normalizing flows.
 
 Since their introduction in 2020, DDPMs have been the foundation for cutting-edge image generation systems, including [DALL-E 2](https://openai.com/product/dall-e-2), [Imagen](https://imagen.research.google/), [Stable Diffusion](https://github.com/Stability-AI/stablediffusion), and [Midjourney](https://midjourney.com/).
@@ -75,6 +88,10 @@ From the usual UNet architecture, the authors replaced the original double convo
 2. Higher resolution setups are more likely to provide better results
 
 The Kaggle notebook for experiments can be found [here](https://www.kaggle.com/code/binh234/denoising-diffusion-probabilistic-model)
+
+**Inference process**:
+
+[inference.webm](https://user-images.githubusercontent.com/57580923/230726862-7a1fb188-1c50-4551-8da4-e5dbf6ffbd58.webm)
 
 ### [Flowers](https://www.kaggle.com/datasets/alxmamaev/flowers-recognition/versions/2)
 
