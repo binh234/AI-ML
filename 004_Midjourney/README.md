@@ -1,11 +1,11 @@
 # Midjourney: From pixels to paintings
 
-Midjourney is an independent research lab that has been making waves in the world of artificial intelligence with its eponymous AI program. The program is designed to create images from textual descriptions, much like OpenAI’s DALL-E and Stable Diffusion. While the underlying technology is speculated to be based on Stable Diffusion, Midjourney’s creators have developed their own unique style for the generated images that have garnered a lot of attention from both AI enthusiasts and artists alike.
+Midjourney is an independent research lab that has been making waves in the artificial intelligence world with its eponymous AI program. The program is designed to create images from textual descriptions, much like OpenAI’s DALL-E and Stable Diffusion. While the underlying technology is speculated to be based on Stable Diffusion, Midjourney’s creators have developed their unique style for the generated images that have garnered a lot of attention from both AI enthusiasts and artists alike.
 
 ![showcases](images/midjourney_ai_art_showcase.jpg)
 <p align="center">Midjourney AI Art showcase</p>
 
-The tool is currently in open beta, having entered this phase on July 12, 2022. Since then, it has been attracting a growing number of users who are fascinated by its capabilities. With Midjourney, users can create artwork using Discord bot commands, making the process of generating images quick and easy.
+The tool is currently in open beta, having entered this phase on July 12, 2022. Since then, it has been attracting a growing number of users who are fascinated by its capabilities. With Midjourney, users can create artwork using Discord bot commands, making the generating process quick and easy.
 
 ## Table of contents
 
@@ -56,9 +56,9 @@ Prompts are the game for generating unique and exciting images with the Midjourn
 
 ![prompt structure](images/midjourney_advanced_prompt.png)
 
-In Midjourney prompts, to ensure the bot generates specific details. Think about the subject, medium, environment, lighting, color, mood, and composition. Anything left unsaid will be randomized.
+In Midjourney prompts, to ensure the bot generates specific details, think about the subject, medium, environment, lighting, color, mood, and composition. Anything left unsaid will be randomized.
 
-Advanced prompts can include one or more image URLs, multiple text phrases, and one or more parameters. Image URLs can be added to a prompt to influence the style and content of the finished result, and parameters can change how an image generates, such as aspect ratios, negative prompts, models, upscalers, and more.
+Advanced prompts can include one or more image URLs, multiple text phrases, and one or more parameters. Image URLs can be added to a prompt to influence the style and content of the finished result, and parameters can change how an image generates, such as aspect ratios, negative prompts, models, upscaling, and more.
 
 ## Midjourney Parameters
 
@@ -68,7 +68,7 @@ Basic parameters include aspect ratios, chaos, negative prompting, rendering qua
 
 ### Model
 
-Midjourney periodically releases updated versions of its models to enhance efficiency, coherence, and image quality. Each model has its own strengths and is designed for specific types of images.
+Midjourney periodically releases updated versions of its models to enhance efficiency, coherence, and image quality. Each model has its strengths and is designed for specific types of images.
 
 A model can be selected for a generation job by adding its respective parameter at the end of the image prompt. The available models are:
 
