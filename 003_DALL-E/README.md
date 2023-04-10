@@ -8,6 +8,19 @@ DALL·E 2 showcases:
 
 ![showcases](images/dall-e_2_showcase.jpg)
 
+## Table of Contents
+
+- [DALL·E 2: A Breakthrough in AI Art Generation](#dalle-2-a-breakthrough-in-ai-art-generation)
+  - [Table of Contents](#table-of-contents)
+  - [What is DALL·E 2?](#what-is-dalle-2)
+  - [DALL·E 2 Features](#dalle-2-features)
+    - [Generate Images](#generate-images)
+    - [Inpainting](#inpainting)
+    - [Out Painting](#out-painting)
+    - [Generate Image Variations](#generate-image-variations)
+  - [How does it work?](#how-does-it-work)
+  - [References](#references)
+
 ## What is DALL·E 2?
 
 DALL-E 2 is the 2nd generation of the diffusion model that uses the diffusion process to fuse multiple visual concepts to create novel images. It was released by OpenAI in April 2022.
