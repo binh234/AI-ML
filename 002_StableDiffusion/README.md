@@ -2,6 +2,26 @@
 
 Diffusion models are now the go-to models for generating images. As diffusion models allow us to condition image generation with prompts, we can create images of our choice. Stable Diffusion is the most famous because of its open-source nature.
 
+## Table of Contents
+
+- [Stable Diffusion - A New Paradigm in Generative AI](#stable-diffusion---a-new-paradigm-in-generative-ai)
+  - [Table of Contents](#table-of-contents)
+  - [What is Stable Diffusion?](#what-is-stable-diffusion)
+  - [Architecture](#architecture)
+    - [Training stable diffusion](#training-stable-diffusion)
+    - [Text encoder](#text-encoder)
+    - [UNet Noise Predictor](#unet-noise-predictor)
+    - [Autoencoder-Decoder Model](#autoencoder-decoder-model)
+  - [The Entire Process of Training Stable Diffusion](#the-entire-process-of-training-stable-diffusion)
+  - [Inference](#inference)
+  - [Different Versions of Stable Diffusion](#different-versions-of-stable-diffusion)
+  - [Variations of Stable Diffusion](#variations-of-stable-diffusion)
+    - [Arcane Diffusion](#arcane-diffusion)
+  - [Robo Diffusion](#robo-diffusion)
+  - [Open Journey](#open-journey)
+  - [Mo Di Diffusion](#mo-di-diffusion)
+  - [References](#references)
+
 ## What is Stable Diffusion?
 
 Originating from the Latent Diffusion Model (LDM), which was the original text-to-image model, Stable Diffusion is an extension. This means that Stable Diffusion is also a **text-to-image** model.
