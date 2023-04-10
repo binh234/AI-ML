@@ -1,6 +1,6 @@
 # Midjourney: From pixels to paintings
 
-Midjourney is an independent research lab that has been making waves in the artificial intelligence world with its eponymous AI program. The program is designed to create images from textual descriptions, much like OpenAI’s DALL-E and Stable Diffusion. While the underlying technology is speculated to be based on Stable Diffusion, Midjourney’s creators have developed their unique style for the generated images that have garnered a lot of attention from both AI enthusiasts and artists alike.
+Midjourney is an independent research lab that has been making waves in the artificial intelligence world with its eponymous AI program. The program is designed to create images from textual descriptions, much like [OpenAI’s DALL-E](https://openai.com/product/dall-e-2) and [Stable Diffusion](https://github.com/Stability-AI/stablediffusion). While the underlying technology is speculated to be based on Stable Diffusion, Midjourney’s creators have developed their unique style for the generated images that have garnered a lot of attention from both AI enthusiasts and artists alike.
 
 ![showcases](images/midjourney_ai_art_showcase.jpg)
 <p align="center">Midjourney AI Art showcase</p>
@@ -156,3 +156,5 @@ To use the command, simply type the **/blend** command followed by the images yo
 
 1. [Midjourney](https://midjourney.com/)
 2. [From Pixels to Paintings: The Rise of Midjourney AI Art](https://learnopencv.com/rise-of-midjourney-ai-art/#advanced-prompts-for-midjourney)
+3. [Stable Diffusion](https://github.com/Stability-AI/stablediffusion)
+4. [DALL-E 2](https://openai.com/product/dall-e-2)
