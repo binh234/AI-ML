@@ -40,6 +40,8 @@ R – "Pixar, Disney pictures, air balloons, balloon festival, dark sky, bright 
 
 A use-case of Img2Img is Style Tranfer. In Style transfer, we take two images: one for content and one for style reference. A new image is generated that is a mixture of both: the first’s content in another’s style.
 
+![style transfer](images/diffusion-models-style-transfer.jpg)
+
 ## Image Inpainting
 
 Image Inpainting is an image restoration technique to remove unwanted objects in an image or replace them with some other object/texture/design entirely. To perform image inpainting, the user first draws a mask around the object or the pixels that need to be altered. After creating the mask, the user can tell the model how it should alter the masked pixels.
