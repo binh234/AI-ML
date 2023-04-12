@@ -4,6 +4,21 @@ With the recent boom in [Stable Diffusion](https://github.com/Stability-AI/stabl
 
 ![results](images/instructpix2pix-results.png)
 
+## Table of Contents
+
+- [InstructPix2Pix – Edit Images With Prompts](#instructpix2pix--edit-images-with-prompts)
+  - [Table of Contents](#table-of-contents)
+  - [What is InstructPix2Pix?](#what-is-instructpix2pix)
+  - [Training InstructPix2Pix](#training-instructpix2pix)
+    - [Fine-tuning GPT-3](#fine-tuning-gpt-3)
+    - [Fine-Tuning Text-to-Image Stable Diffusion Model](#fine-tuning-text-to-image-stable-diffusion-model)
+    - [Classifier-Free Guidance for IntstructPix2Pix](#classifier-free-guidance-for-intstructpix2pix)
+  - [InstructPix2Pix Results](#instructpix2pix-results)
+  - [Applications Using Instruct Pix2Pix](#applications-using-instruct-pix2pix)
+  - [References](#references)
+
+<!-- /TOC -->
+
 ## What is InstructPix2Pix?
 
 InstructPix2Pix is a diffusion model, a variation of Stable Diffusion, to be particular. But instead of an image generation model (text-to-image), it is an image editing diffusion model. Just provide an input image and prompt instructions to InstructPix2Pix, then the model will follow the instructions to edit the image.
