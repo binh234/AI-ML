@@ -85,6 +85,33 @@ An approach like this works better when the model needs to learn a very specific
 
 ## ControlNet Implementations and Experiments
 
+There are various models of ControlNet according to the datasets and implementations. These include Canny Edge, Hough Line, Semantic Segmentation, and many more.
+
+What’s interesting about these implementations is how we provide input and then condition the inputs, and get the outputs.
+
+For example, in the case of using the Canny Edge ControlNet model, we do not actually give a Canny Edge image to the model.
+
+Here are the steps on a high level:
+
+- We will provide the model with an RGB image.
+- An intermediate step will extract the Canny edges in the image.
+- The final ControlNet model will give an output in a different style.
+
+The following figure shows the steps for using the Canny ControlNet model.
+
+![canny-example](images/controlnet-canny-intermediate-steps.png)
+
+The most interesting part about all this is that we don’t actually give a prompt to get an output. ControlNet tries to guess an output from the intermediate image in case we do not provide a prompt.
+
+For prompt experiments, ControlNet supports the following options:
+
+- No user prompt
+- A default prompt like “a professional, detailed, high-quality image”
+- Automatic prompt using [BLIP](https://github.com/salesforce/BLIP)
+- Finally, a user given prompt
+
+## ControlNet Outputs
+
 ## References
 
 1. [Stable Diffusion](https://github.com/Stability-AI/stablediffusion)
