@@ -17,7 +17,8 @@ If you aren't looking for anything too personal and want to generate images usin
 
 As the name suggests, we can use diffusion models to directly generate videos with the help of text prompts. Extending the concept used in text-to-image to videos, one can use diffusion models to generate videos from stories, songs, poems, etc.
 
-[text to video](images/diffusion-models_application_text_to_video_deforum_example.webm)
+[diffusion-models_application_text_to_video_deforum_example.webm](https://user-images.githubusercontent.com/57580923/231758620-2cfa7e45-a232-4243-a184-05637e77b191.webm)
+
 <p align="center">a beautiful forest by Asher Brown Durand, trending on Artstation</p>
 
 ## Text to 3D
