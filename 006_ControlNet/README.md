@@ -53,8 +53,7 @@ For example, here is a sample from using the Canny Edge ControlNet model.
 
 ![deer](images/controlnet-canny-deer-example.png)
 
-As you can see, only the pose of the deer remains the same in the final outputs while the environment, weather, and time of day are constantly 
-changing. This was not possible before with vanilla Stable Diffusion models along with the Img2Img method. However, ControlNet has made it much easier to control the artistic outcome of the image.
+As you can see, only the pose of the deer remains the same in the final outputs while the environment, weather, and time of day are constantly changing. This was not possible before with vanilla Stable Diffusion models along with the Img2Img method. However, ControlNet has made it much easier to control the artistic outcome of the image.
 
 ## Architecture
 
@@ -173,7 +172,7 @@ HED Edge is another edge detection ControlNet model which produces great results
 
 ### Human Pose
 
-For using Human Pose ControlNet models, we have two options. 
+For using Human Pose ControlNet models, we have two options.
 
 - Human pose – Openpifpaf
 - Human pose – Openpose
