@@ -8,6 +8,29 @@ ControlNet is a new way of conditioning input images and prompts for image gener
 
 During training, ControlNet learns specific features related to the tasks it is being fine-tuned on. These can range from generating images from canny images to more complicated ones, like generating images from normal maps.
 
+## Table of Contents
+
+- [ControlNet - Let us control diffusion models](#controlnet---let-us-control-diffusion-models)
+  - [Table of Contents](#table-of-contents)
+  - [What can ControlNet do?](#what-can-controlnet-do)
+  - [Architecture](#architecture)
+  - [Training](#training)
+    - [Zero convolution](#zero-convolution)
+    - [Training process](#training-process)
+    - [Improve training for ControlNet](#improve-training-for-controlnet)
+      - [Small-Scale Training](#small-scale-training)
+      - [Large-Scale Training](#large-scale-training)
+  - [ControlNet Implementations and Experiments](#controlnet-implementations-and-experiments)
+  - [ControlNet Outputs](#controlnet-outputs)
+    - [Canny Edge](#canny-edge)
+    - [Hough Line](#hough-line)
+    - [User Scribble](#user-scribble)
+    - [HED Edge](#hed-edge)
+    - [Human Pose](#human-pose)
+    - [Segmentation Map](#segmentation-map)
+    - [Normal Map](#normal-map)
+  - [References](#references)
+
 ## What can ControlNet do?
 
 The authors fine-tune ControlNet to generate images from **prompts** and **specific image structures**. As such, **ControlNet has two conditionings**. ControlNet models have been fine-tuned to generate images from:
