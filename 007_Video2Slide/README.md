@@ -1,5 +1,11 @@
 # Build a Video to Slides Converter Application using the Power of Background Estimation and Frame Differencing in OpenCV
 
+## What is Background Subtraction?
+
+## Background Subtraction Techniques
+
+## Scope for improvements
+
 ## References
 
 1. [Video to slides converter using background subtraction blog](https://learnopencv.com/video-to-slides-converter-using-background-subtraction/)
