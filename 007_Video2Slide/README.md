@@ -4,6 +4,8 @@
 
 ## Background Subtraction Techniques
 
+## Image Hashing
+
 ## Scope for improvements
 
 ## References
