@@ -1,4 +1,20 @@
-# Vector Database
+# The Future of AI: Innovations in Vector Databases
+
+## Table of Contents
+
+- [The Future of AI: Innovations in Vector Databases](#the-future-of-ai-innovations-in-vector-databases)
+  - [Table of Contents](#table-of-contents)
+  - [Differences between a vector index and a vector database](#differences-between-a-vector-index-and-a-vector-database)
+  - [How does a vector database work?](#how-does-a-vector-database-work)
+    - [Algorithms](#algorithms)
+      - [Random Projection](#random-projection)
+      - [Product Quantization](#product-quantization)
+      - [Locality-sensitive hashing](#locality-sensitive-hashing)
+      - [Hierarchical Navigable Small World (HNSW)](#hierarchical-navigable-small-world-hnsw)
+    - [Similarity Measures](#similarity-measures)
+    - [Filtering](#filtering)
+  - [Summary](#summary)
+  - [References](#references)
 
 We are in the middle of the AI revolution. It's upending any industry it touches, promising great innovations - but it also introduces new challenges. Efficient data processing has become more crucial than ever for applications that involve large language models, generative AI, and semantic search.
 
