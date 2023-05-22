@@ -241,4 +241,9 @@ GitHub.sublime-settings
 .history
 .ionide
 
+# ToDo file
+
+TODO.txt
+TODO.md
+
 # End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks,metals,visualstudiocode,sublimetext,python
