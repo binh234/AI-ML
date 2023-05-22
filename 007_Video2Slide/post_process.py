@@ -1,12 +1,14 @@
 import imagehash
-from PIL import Image
 import os
+from collections import deque
+from PIL import Image
 
 
-def find_similar_images(base_dir, hash_size=8):
+def find_similar_images(base_dir, hash_size=8, hashfunc=imagehash.dhash, queue_len=5, threshold=4):
     snapshots_files = sorted(os.listdir(base_dir))
 
     hash_dict = {}
+    hash_queue = deque([], maxlen=queue_len)
     duplicates = []
     num_duplicates = 0
 
@@ -14,11 +16,23 @@ def find_similar_images(base_dir, hash_size=8):
 
     for file in snapshots_files:
         read_file = Image.open(os.path.join(base_dir, file))
-        comp_hash = str(imagehash.dhash(read_file, hash_size=hash_size))
+        comp_hash = hashfunc(read_file, hash_size=hash_size)
+        duplicate = False
 
         if comp_hash not in hash_dict:
             hash_dict[comp_hash] = file
+            # Compare with hash queue to find out potential duplicates
+            for img_hash in hash_queue:
+                if img_hash - comp_hash <= threshold:
+                    duplicate = True
+                    break
+            
+            if not duplicate:
+                hash_queue.append(comp_hash)
         else:
+            duplicate = True
+
+        if duplicate:
             print("Duplicate file: ", file)
             duplicates.append(file)
             num_duplicates += 1
@@ -33,7 +47,6 @@ def remove_duplicates(base_dir):
 
     if not len(duplicates):
         print("No duplicates found!")
-
     else:
         print("Removing duplicates...")
 

@@ -3,6 +3,8 @@ import time
 import sys
 import cv2
 import argparse
+import math
+import imagehash
 from frame_differencing import capture_slides_frame_diff
 from post_process import remove_duplicates
 from utils import resize_image_frame, create_output_directory, convert_slides_to_pdf
@@ -22,6 +24,16 @@ MIN_PERCENT = (
 MAX_PERCENT = (
     0.01  # %age threshold to determine if the motion across frames has stopped.
 )
+
+# Post processing
+
+SIM_THRESHOLD = 90
+
+HASH_SIZE = 8
+
+HASH_FUNC = imagehash.dhash
+
+HASH_BUFFER_HISTORY = 5
 
 # ----------------------------------------------------
 
@@ -129,6 +141,13 @@ if __name__ == "__main__":
         type=str,
     )
     parser.add_argument(
+        "--threshold",
+        help="type of background subtraction to be used",
+        default=95,
+        choices=range(80, 101),
+        type=int,
+    )
+    parser.add_argument(
         "--no_post_process",
         action="store_true",
         default=False,
@@ -150,7 +169,6 @@ if __name__ == "__main__":
 
     if type_bg_sub.lower() == "frame_diff":
         capture_slides_frame_diff(video_path, output_dir_path)
-
     else:
         if type_bg_sub.lower() == "gmg":
             thresh = DEC_THRESH
