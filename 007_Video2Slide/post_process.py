@@ -4,7 +4,9 @@ from collections import deque
 from PIL import Image
 
 
-def find_similar_images(base_dir, hash_size=8, hashfunc=imagehash.dhash, queue_len=5, threshold=4):
+def find_similar_images(
+    base_dir, hash_size=8, hashfunc=imagehash.dhash, queue_len=5, threshold=4
+):
     snapshots_files = sorted(os.listdir(base_dir))
 
     hash_dict = {}
@@ -26,7 +28,7 @@ def find_similar_images(base_dir, hash_size=8, hashfunc=imagehash.dhash, queue_l
                 if img_hash - comp_hash <= threshold:
                     duplicate = True
                     break
-            
+
             if not duplicate:
                 hash_queue.append(comp_hash)
         else:
@@ -42,8 +44,16 @@ def find_similar_images(base_dir, hash_size=8, hashfunc=imagehash.dhash, queue_l
     return hash_dict, duplicates
 
 
-def remove_duplicates(base_dir):
-    _, duplicates = find_similar_images(base_dir, hash_size=12)
+def remove_duplicates(
+    base_dir, hash_size=8, hashfunc=imagehash.dhash, queue_len=5, threshold=4
+):
+    _, duplicates = find_similar_images(
+        base_dir,
+        hash_size=hash_size,
+        hashfunc=hashfunc,
+        queue_len=queue_len,
+        threshold=threshold,
+    )
 
     if not len(duplicates):
         print("No duplicates found!")

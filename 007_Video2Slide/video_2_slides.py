@@ -3,7 +3,6 @@ import time
 import sys
 import cv2
 import argparse
-import math
 import imagehash
 from frame_differencing import capture_slides_frame_diff
 from post_process import remove_duplicates
@@ -27,13 +26,19 @@ MAX_PERCENT = (
 
 # Post processing
 
-SIM_THRESHOLD = 90
+SIM_THRESHOLD = 96
 
-HASH_SIZE = 8
+HASH_SIZE = 12
 
-HASH_FUNC = imagehash.dhash
+HASH_FUNC = "dhash"
 
 HASH_BUFFER_HISTORY = 5
+
+HASH_FUNC_DICT = {
+    "dhash": imagehash.dhash,
+    "phash": imagehash.phash,
+    "ahash": imagehash.average_hash,
+}
 
 # ----------------------------------------------------
 
@@ -141,10 +146,33 @@ if __name__ == "__main__":
         type=str,
     )
     parser.add_argument(
+        "-hf",
+        "--hash-func",
+        help="Hash function to use to image hashing. Only effective if post-processing is enabled",
+        default=HASH_FUNC,
+        choices=["dhash", "phash", "ahash"],
+        type=str,
+    )
+    parser.add_argument(
+        "-hs",
+        "--hash-size",
+        help="Hash size to use to image hashing. Only effective if post-processing is enabled",
+        default=HASH_SIZE,
+        choices=[8, 12, 16],
+        type=int,
+    )
+    parser.add_argument(
         "--threshold",
-        help="type of background subtraction to be used",
-        default=95,
-        choices=range(80, 101),
+        help="Minimum similarity threshold (in percent) to consider 2 images to be similar. Only effective if post-processing is enabled",
+        default=SIM_THRESHOLD,
+        choices=range(90, 101),
+        type=int,
+    )
+    parser.add_argument(
+        "-q",
+        "--queue-len",
+        help="Number of history images used to find out duplicate image. Only effective if post-processing is enabled",
+        default=HASH_BUFFER_HISTORY,
         type=int,
     )
     parser.add_argument(
@@ -160,6 +188,11 @@ if __name__ == "__main__":
         help="flag to convert the entire image set to pdf or not",
     )
     args = parser.parse_args()
+
+    queue_len = args.queue_len
+    if queue_len <= 0:
+        print(f"Warnings: queue_len argument must be positive. Fallback to {HASH_BUFFER_HISTORY}")
+        queue_len = HASH_BUFFER_HISTORY
 
     video_path = args.video_file_path
     output_dir_path = args.out_dir
@@ -187,7 +220,14 @@ if __name__ == "__main__":
 
     # Perform post-processing using difference hashing technique to remove duplicate slides.
     if not args.no_post_process:
-        remove_duplicates(output_dir_path)
+        hash_size = args.hash_size
+        hash_func = HASH_FUNC_DICT.get(args.hash_func)
+        sim_threshold = args.threshold
+
+        diff_threshold = int(hash_size * hash_size * (100 - SIM_THRESHOLD) / 100)
+        remove_duplicates(
+            output_dir_path, hash_size, hash_func, queue_len, diff_threshold
+        )
 
     if args.convert_to_pdf:
         convert_slides_to_pdf(video_path, output_dir_path)
