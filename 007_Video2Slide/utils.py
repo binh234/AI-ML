@@ -45,7 +45,7 @@ def convert_slides_to_pdf(video_path, output_path):
     print("Converting captured slide images to PDF...")
 
     with open(output_pdf_path, "wb") as f:
-        f.write(img2pdf.convert(sorted(glob.glob(f"{output_path}/*.png"))))
+        f.write(img2pdf.convert(sorted(glob.glob(f"{output_path}/*.jpg"))))
 
     print("PDF Created!")
     print("***" * 10, "\n")

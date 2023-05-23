@@ -63,10 +63,10 @@ def capture_slides_bg_modeling(
 
             screenshots_count += 1
 
-            png_filename = f"{screenshots_count:03}.png"
+            png_filename = f"{screenshots_count:03}.jpg"
             out_file_path = os.path.join(output_dir_path, png_filename)
             print(f"Saving file at: {out_file_path}")
-            cv2.imwrite(out_file_path, orig_frame)
+            cv2.imwrite(out_file_path, orig_frame, [cv2.IMWRITE_JPEG_QUALITY, 75])
 
         # p_non_zero >= MIN_PERCENT_THRESH, indicates motion/animations.
         # Hence wait till the motion across subsequent frames has settled down.
