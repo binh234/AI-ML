@@ -164,9 +164,7 @@ with gr.Blocks(css="style.css") as demo:
                     )
                 with gr.Column(scale=1, min_width=160):
                     upload_button = gr.UploadButton("Browse File", file_types=["video"])
-            file_output = gr.File(
-                file_types=[".pdf"],
-            )
+            file_output = gr.File(file_types=[".pdf"],)
 
     file_url.submit(
         process_via_url,

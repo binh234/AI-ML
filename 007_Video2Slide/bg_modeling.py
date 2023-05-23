@@ -4,6 +4,7 @@ import sys
 import cv2
 from utils import resize_image_frame
 
+
 def capture_slides_bg_modeling(
     video_path,
     output_dir_path,

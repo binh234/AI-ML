@@ -37,7 +37,12 @@ def download_video_from_url(url, output_dir=DOWNLOAD_DIR):
 def download_video_from_youtube(url, output_dir=DOWNLOAD_DIR):
     try:
         yt = YouTube(url)
-        video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+        video = (
+            yt.streams.filter(progressive=True, file_extension="mp4")
+            .order_by("resolution")
+            .desc()
+            .first()
+        )
 
         os.makedirs(output_dir, exist_ok=True)
 
