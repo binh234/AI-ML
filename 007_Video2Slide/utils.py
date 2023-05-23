@@ -21,7 +21,7 @@ def resize_image_frame(frame, resize_width):
 
 
 def create_output_directory(video_path, output_path, type_bgsub):
-    vid_file_name = video_path.rsplit("/")[-1].split(".")[0]
+    vid_file_name = video_path.rsplit(os.sep)[-1].split(".")[0]
     output_dir_path = os.path.join(output_path, vid_file_name, type_bgsub)
 
     # Remove the output directory if there is already one.
@@ -38,7 +38,7 @@ def create_output_directory(video_path, output_path, type_bgsub):
 
 
 def convert_slides_to_pdf(video_path, output_path):
-    pdf_file_name = video_path.rsplit("/")[-1].split(".")[0] + ".pdf"
+    pdf_file_name = video_path.rsplit(os.sep)[-1].split(".")[0] + ".pdf"
     output_pdf_path = os.path.join(output_path, pdf_file_name)
 
     print("Output PDF Path:", output_pdf_path)

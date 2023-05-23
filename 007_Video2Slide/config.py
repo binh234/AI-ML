@@ -2,6 +2,8 @@ import imagehash
 
 # -------------- Initializations ---------------------
 
+DOWNLOAD_DIR = "downloads"
+
 FRAME_BUFFER_HISTORY = 15  # Length of the frame buffer history to model background.
 DEC_THRESH = (
     0.75  # Threshold value, above which it is marked foreground, else background.

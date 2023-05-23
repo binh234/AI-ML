@@ -5,3 +5,5 @@ scipy
 six
 ImageHash
 img2pdf
+validators
+requests

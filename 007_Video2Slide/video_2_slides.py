@@ -1,5 +1,8 @@
 import argparse
+import os
+import validators
 from config import *
+from download_video import download_video
 from bg_modeling import capture_slides_bg_modeling
 from frame_differencing import capture_slides_frame_diff
 from post_process import remove_duplicates
@@ -81,6 +84,15 @@ if __name__ == "__main__":
     video_path = args.video_file_path
     output_dir_path = args.out_dir
     type_bg_sub = args.type
+    temp_file = False
+
+    if validators.url(video_path):
+        video_path = download_video(video_path)
+        temp_file = True
+        if video_path is None:
+            exit(1)
+    elif not os.path.exists(video_path):
+        raise ValueError("The video doesn't exist or isn't a valid URL. Please check your video path again")
 
     output_dir_path = create_output_directory(video_path, output_dir_path, type_bg_sub)
 
@@ -115,3 +127,6 @@ if __name__ == "__main__":
 
     if args.convert_to_pdf:
         convert_slides_to_pdf(video_path, output_dir_path)
+
+    # if temp_file:
+    #     os.remove(video_path)
