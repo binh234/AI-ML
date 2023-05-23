@@ -33,7 +33,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-hf",
         "--hash-func",
-        help="Hash function to use to image hashing. Only effective if post-processing is enabled",
+        help="Hash function to use for image hashing. Only effective if post-processing is enabled",
         default=HASH_FUNC,
         choices=["dhash", "phash", "ahash"],
         type=str,
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-hs",
         "--hash-size",
-        help="Hash size to use to image hashing. Only effective if post-processing is enabled",
+        help="Hash size to use for image hashing. Only effective if post-processing is enabled",
         default=HASH_SIZE,
         choices=[8, 12, 16],
         type=int,
@@ -92,7 +92,9 @@ if __name__ == "__main__":
         if video_path is None:
             exit(1)
     elif not os.path.exists(video_path):
-        raise ValueError("The video doesn't exist or isn't a valid URL. Please check your video path again")
+        raise ValueError(
+            "The video doesn't exist or isn't a valid URL. Please check your video path again"
+        )
 
     output_dir_path = create_output_directory(video_path, output_dir_path, type_bg_sub)
 
@@ -120,7 +122,7 @@ if __name__ == "__main__":
         hash_func = HASH_FUNC_DICT.get(args.hash_func)
         sim_threshold = args.threshold
 
-        diff_threshold = int(hash_size * hash_size * (100 - SIM_THRESHOLD) / 100)
+        diff_threshold = int(hash_size * hash_size * (100 - sim_threshold) / 100)
         remove_duplicates(
             output_dir_path, hash_size, hash_func, queue_len, diff_threshold
         )

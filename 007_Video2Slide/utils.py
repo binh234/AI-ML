@@ -49,3 +49,5 @@ def convert_slides_to_pdf(video_path, output_path):
 
     print("PDF Created!")
     print("***" * 10, "\n")
+
+    return output_pdf_path

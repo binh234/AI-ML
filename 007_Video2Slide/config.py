@@ -19,18 +19,22 @@ MAX_PERCENT = (
 
 # Post processing
 
-SIM_THRESHOLD = 96
+SIM_THRESHOLD = 96 # Minimum similarity threshold (in percent) to consider 2 images to be similar
 
-HASH_SIZE = 12
+HASH_SIZE = 12 # Hash size to use for image hashing
 
-HASH_FUNC = "dhash"
+HASH_FUNC = "dhash" # Hash function to use for image hashing
 
-HASH_BUFFER_HISTORY = 5
+HASH_BUFFER_HISTORY = 5 # Number of history images used to find out duplicate image
 
 HASH_FUNC_DICT = {
     "dhash": imagehash.dhash,
     "phash": imagehash.phash,
     "ahash": imagehash.average_hash,
+
+    "difference hashing": imagehash.dhash,
+    "perceptual hashing": imagehash.phash,
+    "average hashing": imagehash.average_hash,
 }
 
 # ----------------------------------------------------
