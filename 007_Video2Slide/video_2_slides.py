@@ -14,7 +14,7 @@ if __name__ == "__main__":
         description="This script is used to convert video frames into slide PDFs."
     )
     parser.add_argument(
-        "-v", "--video_file_path", help="Path to the video file", type=str
+        "-v", "--video_path", help="Path to the video file", type=str
     )
     parser.add_argument(
         "-o",
