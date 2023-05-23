@@ -65,6 +65,64 @@ There are several approaches for image hashing, such as [average hashing](http:/
 
 ## Development
 
+### Dependencies
+
+1. Install OpenCV
+    **If you already have opencv installed, skip this step**
+
+    ```bash
+    pip install opencv-contrib-python==4.7.0.72
+    ```
+
+2. Install other packages
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Install gradio (optional)
+   **If you don't use the GUI version, skip this step**
+
+   ```bash
+    pip install gradio
+    ```
+
+### Command-Line Options
+
+```bash
+usage: video_2_slides.py [-h] [-v VIDEO_FILE_PATH] [-o OUT_DIR] [--type {Frame_Diff,GMG,KNN}] [-hf {dhash,phash,ahash}] [-hs {8,12,16}]
+                         [--threshold {90,91,92,93,94,95,96,97,98,99,100}] [-q QUEUE_LEN] [--no_post_process] [--convert_to_pdf]
+
+This script is used to convert video frames into slide PDF.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v VIDEO_PATH, --video_path VIDEO_FILE_PATH
+                        Path to the video file or video url or YouTube video link
+  -o OUT_DIR, --out_dir OUT_DIR
+                        Path to the output directory
+  --type {Frame_Diff,GMG,KNN}
+                        type of background subtraction to be used
+  -hf {dhash,phash,ahash}, --hash-func {dhash,phash,ahash}
+                        Hash function to use for image hashing. Only effective if post-processing is enabled
+  -hs {8,12,16}, --hash-size {8,12,16}
+                        Hash size to use for image hashing. Only effective if post-processing is enabled
+  --threshold {90,91,92,93,94,95,96,97,98,99,100}
+                        Minimum similarity threshold (in percent) to consider 2 images to be similar. Only effective if post-processing is enabled
+  -q QUEUE_LEN, --queue-len QUEUE_LEN
+                        Number of history images used to find out duplicate image. Only effective if post-processing is enabled
+  --no_post_process     flag to apply post processing or not
+  --convert_to_pdf      flag to convert the entire image set to pdf or not
+```
+
+### Gradio App
+
+```bash
+gradio app.py
+```
+
+The server will be available at [http://localhost:7680](http://localhost:7680)
+
 ## Scope for improvements
 
 ## References
