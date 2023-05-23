@@ -104,67 +104,96 @@ def process_via_url(
 
 
 with gr.Blocks(css="style.css") as demo:
-    with gr.Row(elem_id="container"):
-        with gr.Column(scale=1):
-            with gr.Accordion("Advanced parameters"):
-                bg_type = gr.Dropdown(
-                    ["Frame Diff", "GMG", "KNN"],
-                    value="GMG",
-                    label="Background subtraction",
-                    info="Type of background subtraction to be used",
-                )
-                frame_buffer_history = gr.Slider(
-                    minimum=5,
-                    maximum=20,
-                    value=FRAME_BUFFER_HISTORY,
-                    step=5,
-                    label="Frame buffer history",
-                    info="Length of the frame buffer history to model background.",
-                )
-                # Post process
-                hash_func = gr.Dropdown(
-                    ["Difference hashing", "Perceptual hashing", "Average hashing"],
-                    value="Difference hashing",
-                    label="Background subtraction",
-                    info="Hash function to use for image hashing",
-                )
-                hash_size = gr.Slider(
-                    minimum=8,
-                    maximum=16,
-                    value=HASH_SIZE,
-                    step=2,
-                    label="Hash size",
-                    info="Hash size to use for image hashing",
-                )
-                hash_queue_len = gr.Slider(
-                    minimum=5,
-                    maximum=15,
-                    value=HASH_BUFFER_HISTORY,
-                    step=5,
-                    label="Hash queue len",
-                    info="Number of history images used to find out duplicate image",
-                )
-                sim_threshold = gr.Slider(
-                    minimum=90,
-                    maximum=100,
-                    value=SIM_THRESHOLD,
-                    step=1,
-                    label="Similarity threshold",
-                    info="Minimum similarity threshold (in percent) to consider 2 images to be similar",
-                )
+    with gr.Column(elem_id="container"):
+        gr.Markdown(
+        """
+        # Video 2 Slides Converter
+    
+        Convert your video presentation into PDF slides with one click.
 
-        with gr.Column(scale=2):
-            with gr.Row(elem_id="row-flex"):
-                with gr.Column(scale=3):
-                    file_url = gr.Textbox(
-                        value="",
-                        label="Upload your file",
-                        placeholder="Enter a url",
-                        show_label=False,
+        You can browse your video from the local file system, or enter a video URL/YouTube video link to start processing.
+
+        **Note**: 
+        - It will take a bit of time to complete (~40% of the original video length), so stay tuned!
+        - Remember to press Enter if you are using an external URL
+        """
+        )
+        with gr.Row():
+            with gr.Column(scale=1):
+                with gr.Accordion("Advanced parameters"):
+                    bg_type = gr.Dropdown(
+                        ["Frame Diff", "GMG", "KNN"],
+                        value="GMG",
+                        label="Background subtraction",
+                        info="Type of background subtraction to be used",
                     )
-                with gr.Column(scale=1, min_width=160):
-                    upload_button = gr.UploadButton("Browse File", file_types=["video"])
-            file_output = gr.File(file_types=[".pdf"],)
+                    frame_buffer_history = gr.Slider(
+                        minimum=5,
+                        maximum=20,
+                        value=FRAME_BUFFER_HISTORY,
+                        step=5,
+                        label="Frame buffer history",
+                        info="Length of the frame buffer history to model background.",
+                    )
+                    # Post process
+                    hash_func = gr.Dropdown(
+                        ["Difference hashing", "Perceptual hashing", "Average hashing"],
+                        value="Difference hashing",
+                        label="Background subtraction",
+                        info="Hash function to use for image hashing",
+                    )
+                    hash_size = gr.Slider(
+                        minimum=8,
+                        maximum=16,
+                        value=HASH_SIZE,
+                        step=2,
+                        label="Hash size",
+                        info="Hash size to use for image hashing",
+                    )
+                    hash_queue_len = gr.Slider(
+                        minimum=5,
+                        maximum=15,
+                        value=HASH_BUFFER_HISTORY,
+                        step=5,
+                        label="Hash queue len",
+                        info="Number of history images used to find out duplicate image",
+                    )
+                    sim_threshold = gr.Slider(
+                        minimum=90,
+                        maximum=100,
+                        value=SIM_THRESHOLD,
+                        step=1,
+                        label="Similarity threshold",
+                        info="Minimum similarity threshold (in percent) to consider 2 images to be similar",
+                    )
+
+            with gr.Column(scale=2):
+                with gr.Row(elem_id="row-flex"):
+                    with gr.Column(scale=3):
+                        file_url = gr.Textbox(
+                            value="",
+                            label="Video url",
+                            placeholder="Enter a video url or YouTube link",
+                            show_label=False,
+                        )
+                    with gr.Column(scale=1, min_width=160):
+                        upload_button = gr.UploadButton(
+                            "Browse File", file_types=["video"]
+                        )
+                file_output = gr.File(file_types=[".pdf"], label="Output PDF")
+                gr.Examples(
+                    [
+                        [
+                            "https://www.youtube.com/watch?v=bfmFfD2RIcg",
+                            "output_results/Neural Network In 5 Minutes.pdf",
+                        ],
+                        [
+                            "https://www.youtube.com/watch?v=EEo10bgsh0k",
+                            "output_results/react-in-5-minutes.pdf",
+                        ],
+                    ],
+                    [file_url, file_output],
+                )
 
     file_url.submit(
         process_via_url,
