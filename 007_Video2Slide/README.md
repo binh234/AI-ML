@@ -153,7 +153,7 @@ We have seen how the various background estimation approaches produce decent res
 
 The KNN background estimation approach yields almost three times faster in FPS than its GMG counterpart. However, in some video samples, the KNN approach misses out on a few frames.
 
-The application yields almost perfect results for both lectures having voice-over presentations or facial camera movements. However, the only minus point is that the processing speed is not fast, it will take about 40% of the original video length to complete. We can mitigate this by using more computing resources or a deep-learning-based approach with powerful GPU devices.
+The application yields almost perfect results for both lectures having voice-over presentations or facial camera movements. However, the only minus point is that the processing speed is not very fast, it will take about 40% of the original video length to complete. We can mitigate this by using more computing resources or a deep-learning-based approach with powerful GPU devices.
 
 ## References
 
