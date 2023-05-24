@@ -4,6 +4,23 @@ This is a simple video-to-slide converter application that aims to obtain slide 
 
 This is highly useful when one wishes to have a video lecture(with or without animations) in the form of slides – either a ppt or pdf. However, more often than not, slides are not provided when such video lectures are hosted on platforms like YouTube. This project aims to build a robust application that can convert video lectures into corresponding slides using techniques such as basic frame differencing and statistical background subtraction models such as **KNN** or **GMG**.
 
+## Table of Contents
+
+- [Video to Slides Converter: Transform Video Lectures into Slide Presentations](#video-to-slides-converter-transform-video-lectures-into-slide-presentations)
+  - [Table of Contents](#table-of-contents)
+  - [What is Background Subtraction?](#what-is-background-subtraction)
+  - [Common Background Subtraction Techniques in OpenCV](#common-background-subtraction-techniques-in-opencv)
+  - [Application workflow](#application-workflow)
+    - [Frame Differencing](#frame-differencing)
+    - [Probabilistic Background Modeling](#probabilistic-background-modeling)
+    - [Post-processing](#post-processing)
+  - [Development](#development)
+    - [Dependencies](#dependencies)
+    - [Gradio App](#gradio-app)
+    - [Sample outputs](#sample-outputs)
+  - [Scope for improvements](#scope-for-improvements)
+  - [References](#references)
+
 ## What is Background Subtraction?
 
 Background subtraction is a technique for separating foreground objects from the background in a video sequence. The idea is to model the scene's background and subtract it from each frame to obtain the foreground objects. This is useful in many computer vision applications, such as object tracking, activity recognition, and crowd analysis. Therefore, we can extend this concept to convert slide videos into the corresponding slides where the notion of motion is the various animations encountered through the video sequence.
@@ -140,6 +157,6 @@ The application yields almost perfect results for both lectures having voice-ove
 
 ## References
 
-1. [Video to slides converter using background subtraction blog](https://learnopencv.com/video-to-slides-converter-using-background-subtraction/)
+1. [OpenCV blog](https://learnopencv.com/video-to-slides-converter-using-background-subtraction/)
 2. [Simple Background Estimation in Videos using OpenCV](https://learnopencv.com/simple-background-estimation-in-videos-using-opencv-c-python/)
 3. [Image Hashing](https://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html)
