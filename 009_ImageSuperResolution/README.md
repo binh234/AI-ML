@@ -1,5 +1,29 @@
 # Image Super Resolution
 
+<!-- TOC -->
+
+- [Image Super Resolution](#image-super-resolution)
+  - [Single-Image vs. Multi-Image Super Resolution](#single-image-vs-multi-image-super-resolution)
+  - [Evaluation Techniques](#evaluation-techniques)
+    - [PSNR](#psnr)
+    - [SSIM](#ssim)
+  - [Learning Strategies](#learning-strategies)
+    - [Pre Upsampling](#pre-upsampling)
+    - [Post Upsampling](#post-upsampling)
+    - [Progressive Upsampling](#progressive-upsampling)
+  - [Popular Architectures](#popular-architectures)
+    - [SRCNN](#srcnn)
+    - [SRGAN](#srgan)
+    - [ESPCN](#espcn)
+    - [SwinIR](#swinir)
+  - [Low Supervision Methods](#low-supervision-methods)
+    - [Semi-Supervised Methods](#semi-supervised-methods)
+    - [Few-Shot Methods](#few-shot-methods)
+    - [Unsupervised Methods](#unsupervised-methods)
+  - [References](#references)
+
+<!-- /TOC -->
+
 The resolution of an image is the number of pixels displayed per square inch (PPI) of a digital image. Super-Resolution (SR) refers to enhancing the resolution of an image from its low-resolution counterpart(s).
 
 For example, when you zoom in on a digital image, you see that the image starts to blur. This is because the pixel density in the zoomed region is just linear interpolation which is not enough to represent a clear image.
