@@ -25,7 +25,7 @@ This is highly useful when one wishes to have a video lecture(with or without an
 
 Background subtraction is a technique for separating foreground objects from the background in a video sequence. The idea is to model the scene's background and subtract it from each frame to obtain the foreground objects. This is useful in many computer vision applications, such as object tracking, activity recognition, and crowd analysis. Therefore, we can extend this concept to convert slide videos into the corresponding slides where the notion of motion is the various animations encountered through the video sequence.
 
-[bg-subtraction](images/background_subtraction.png)
+![bg-subtraction](images/background_subtraction.png)
 
 Background modeling consists of two main steps:
 
@@ -62,7 +62,7 @@ Background Subtraction through frame differencing is quite simple.
 - Compute the absolute difference between successive frames and calculate the foreground mask percentage after some morphological operations.
 - Save that particular frame if this percentage exceeds a certain threshold.
 
-[fd-workflow](images/application_workflow_frame_differencing.png)
+![fd-workflow](images/application_workflow_frame_differencing.png)
 
 ### Probabilistic Background Modeling
 
@@ -70,7 +70,7 @@ Background Subtraction through frame differencing is quite simple.
 - Pass each of them through a background subtraction model, which generates a binary mask, and then calculate the percentage of foreground pixels in that frame.
 - If this percentage is above a specific threshold **T1**, it indicates some motion (animations in our case), and we wait till the motion settles down. Once the percentage is below a threshold **T2**, we save the corresponding frame.
 
-[bg-workflow](images/application_workflow_background_modeling.png)
+![bg-workflow](images/application_workflow_background_modeling.png)
 
 ### Post-processing
 
