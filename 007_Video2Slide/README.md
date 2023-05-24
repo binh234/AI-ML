@@ -1,8 +1,8 @@
 # Video to Slides Converter: Transform Video Lectures into Slide Presentations
 
-This is a simple video to slides converter application which aims to obtain slide images (or pdf) given slide or lecture videos.
+This is a simple video-to-slide converter application that aims to obtain slide images (or pdf) given slide or lecture videos.
 
-This is highly useful when one wishes to have a video lecture(with or without animations) in the form of slides – either a ppt or pdf. However, more often than not, slides are not provided when such video lectures are hosted on platforms such as YouTube. This project aims to build a robust application that can convert video lectures into corresponding slides using techniques such as basic frame differencing and statistical background subtraction models such as **KNN** or **GMG**.
+This is highly useful when one wishes to have a video lecture(with or without animations) in the form of slides – either a ppt or pdf. However, more often than not, slides are not provided when such video lectures are hosted on platforms like YouTube. This project aims to build a robust application that can convert video lectures into corresponding slides using techniques such as basic frame differencing and statistical background subtraction models such as **KNN** or **GMG**.
 
 ## What is Background Subtraction?
 
@@ -29,7 +29,7 @@ cv2.createBackgroundSubtractorKNN([, history[, dist2Threshold[, detectShadows]]]
 The function prototype is:
 cv2.createBackgroundSubtractorMOG2([, history[, varThreshold[, detectShadows]]])
 - **GMG Background Subtraction**: This approach was introduced in the paper [Visual Tracking of Human Visitors under Variable-Lighting Conditions for a Responsive Audio Art Installation](https://www.researchgate.net/publication/261311764_Visual_tracking_of_human_visitors_under_variable-lighting_conditions_for_a_responsive_audio_art_installation). It is a parametric approach that combines statistical background image estimation and per-pixel Bayesian segmentation.
-It uses first few (120 by default) frames for background modelling. It employs probabilistic foreground segmentation algorithm that identifies possible foreground objects using Bayesian inference. The estimates are adaptive; newer observations are more heavily weighted than old observations to accommodate variable illumination.
+It uses the first few (120 by default) frames for background modeling. It employs a probabilistic foreground segmentation algorithm that identifies possible foreground objects using Bayesian inference. The estimates are adaptive; newer observations are more heavily weighted than old observations to accommodate variable illumination.
 The function prototype is:
 cv2.bgsegm.createBackgroundSubtractorGMG([, initializationFrames[,  decisionThreshold]])
 
@@ -55,11 +55,11 @@ Background Subtraction through frame differencing is quite simple.
 
 [bg-workflow](images/application_workflow_background_modeling.png)
 
-### Post processing
+### Post-processing
 
-Now that we have obtained slide images using background modeling, a significant concern remains. Many of the screenshots that were generated were broadly similar. Therefore, we have our task cut out to eliminate such images.
+Now that we have obtained slide images using background modeling, one significant concern remains. Many of the generated screenshots are broadly similar. Therefore, we have our task cut out to eliminate such images.
 
-We apply a popular technique called image hashing to achieve this task. It should be borned in mind that we cannot apply the more popular cryptographic hashing algorithms such as **MD5** or **SHA-1**. Cryptographic hashing techniques cause minor differences in the pixel values of similar images to be completely different. Image hashing techniques can mitigate this problem by yielding similar (or identical) hashes for similar images.
+We apply a popular technique called image hashing to achieve this task. It should be borne in mind that we cannot apply more popular cryptographic hashing algorithms such as **MD5** or **SHA-1**. Cryptographic hashing techniques cause minor differences in the pixel values of similar images to be completely different. Image hashing techniques can mitigate this problem by yielding similar (or identical) hashes for similar images.
 
 There are several approaches for image hashing, such as [average hashing](http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html), [perceptual hashing](http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html), [difference hashing](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html), [wavelet hashing](https://fullstackml.com/2016/07/02/wavelet-image-hash-in-python/), etc. These algorithms analyze the image structure on luminance (without color information).
 
@@ -98,7 +98,7 @@ This script is used to convert video frames into slide PDF.
 optional arguments:
   -h, --help            show this help message and exit
   -v VIDEO_PATH, --video_path VIDEO_FILE_PATH
-                        Path to the video file or video url or YouTube video link
+                        Path to the video file, video url, or YouTube video link
   -o OUT_DIR, --out_dir OUT_DIR
                         Path to the output directory
   --type {Frame_Diff,GMG,KNN}
@@ -121,9 +121,22 @@ optional arguments:
 gradio app.py
 ```
 
-The server will be available at [http://localhost:7680](http://localhost:7680)
+The application will be available at [http://localhost:7680](http://localhost:7680)
+
+### Sample outputs
+
+| Video file | Output |
+|---|---|
+| [https://www.youtube.com/watch?v=bfmFfD2RIcg](https://www.youtube.com/watch?v=bfmFfD2RIcg) | output_results/Neural Network In 5 Minutes.pdf  |
+| sample_vids/react-in-5-minutes.mp4 | output_results/react-in-5-minutes.pdf |
 
 ## Scope for improvements
+
+We have seen how the various background estimation approaches produce decent results for scenes with significant animations. Similarly, scenes containing mostly static frames can be handled by a naive frame differencing approach.
+
+The KNN background estimation approach yields almost three times faster in FPS than its GMG counterpart. However, in some video samples, the KNN approach misses out on a few frames.
+
+The application yields almost perfect results for both lectures having voice-over presentations or facial camera movements. However, the only minus point is that the processing speed is not fast, it will take about 40% of the original video length to complete. We can mitigate this by using more computing resources or a deep-learning-based approach with powerful GPU devices.
 
 ## References
 
