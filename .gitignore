@@ -246,4 +246,8 @@ GitHub.sublime-settings
 TODO.txt
 TODO.md
 
+# Download folder
+
+downloads/
+
 # End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks,metals,visualstudiocode,sublimetext,python
