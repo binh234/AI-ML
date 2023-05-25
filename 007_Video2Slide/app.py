@@ -115,6 +115,7 @@ with gr.Blocks(css="style.css") as demo:
 
         **Note**: 
         - It will take a bit of time to complete (~40% of the original video length), so stay tuned!
+        - If the YouTube downloader return errors, you can try again later or download video to your computer and then upload it to the app
         - Remember to press Enter if you are using an external URL
         """,
             elem_id="container",
