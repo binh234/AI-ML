@@ -89,7 +89,7 @@ def process_via_url(
     if validators.url(url):
         video_path = download_video(url)
         if video_path is None:
-            raise gr.Error("Please enter a valid video URL")
+            raise gr.Error("An error occurred while downloading the video, please try again later")
         return process(
             video_path,
             bg_type,

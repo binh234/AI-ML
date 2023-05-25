@@ -1,4 +1,5 @@
 import os
+import re
 import cv2
 import shutil
 import img2pdf
@@ -8,6 +9,14 @@ import glob
 # However, using PIL requires opening each of the images in the set.
 # Hence img2pdf package was used, which is able to convert the entire image set into a PDF
 # without opening at once.
+
+
+def sanitize_file_name(string):
+    sanitized_string = re.sub(r'[^\w ]+', '', string)
+    sanitized_string = re.sub(r'\s+', ' ', sanitized_string)
+    sanitized_string = sanitized_string.strip()
+
+    return sanitized_string
 
 
 def resize_image_frame(frame, resize_width):

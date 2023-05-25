@@ -1,4 +1,5 @@
 import mimetypes
+import re
 import tempfile
 import requests
 import os
@@ -57,6 +58,7 @@ def download_video_from_youtube(url, output_dir=DOWNLOAD_DIR):
 def download_video(url, output_dir=DOWNLOAD_DIR):
     parsed_url = urlparse(url)
     domain = parsed_url.netloc.lower()
+    domain = re.sub(r"\.", "", domain) # Match for both youtube and youtu.be
 
     print("---" * 5, "Downloading video file", "---" * 5)
 

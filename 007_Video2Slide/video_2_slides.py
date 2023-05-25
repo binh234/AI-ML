@@ -81,7 +81,7 @@ if __name__ == "__main__":
         )
         queue_len = HASH_BUFFER_HISTORY
 
-    video_path = args.video_file_path
+    video_path = args.video_path
     output_dir_path = args.out_dir
     type_bg_sub = args.type
     temp_file = False
