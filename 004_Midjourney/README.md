@@ -20,10 +20,15 @@ The tool is currently in open beta, having entered this phase on July 12, 2022. 
   - [Prompt Engineering in Midjourney](#prompt-engineering-in-midjourney)
   - [Midjourney Parameters](#midjourney-parameters)
     - [Model](#model)
-    - [Negative prompt](#negative-prompt)
-    - [Upscale](#upscale)
     - [Seed](#seed)
+    - [Negative prompt](#negative-prompt)
+    - [Prompt weighting](#prompt-weighting)
+    - [Aspect ratio](#aspect-ratio)
+    - [Quality](#quality)
     - [Stylize](#stylize)
+    - [Upscale](#upscale)
+    - [Other parameters](#other-parameters)
+    - [Default parameters](#default-parameters)
   - [Variations](#variations)
   - [Image Blending](#image-blending)
   - [References](#references)
@@ -97,6 +102,13 @@ A model can be selected for a generation job by adding its respective parameter 
 ![version](images/midjourney_v4_q2_knight_with_diamond_armor.png)
 <p align="center">Prompt : knight with diamond armor -v 4</p>
 
+### Seed
+
+The seed number is a critical component of the Midjourney bot’s algorithm. The seed number creates a field of visual noise that serves as a starting point for generating the initial image grids. While seed numbers are generated randomly for each image, users can also specify a particular seed number using the **–seed** parameter to reproduce a work or use it as a comparision benchmark.
+
+![seed](images/midjourney_seed_cyberpunk_cat.png)
+<p align="center">Prompt : cyberpunk cat –seed 1071856 –q 2</p>
+
 ### Negative prompt
 
 It is also essential to focus on what you want in the image instead of what you don’t want. If you don’t want a cake at a party, instead of saying “no cake” in the prompt, try advanced prompting using the “-no” parameter to put “no cake” as a negative prompt.
@@ -106,6 +118,39 @@ It is also essential to focus on what you want in the image instead of what you 
 
 ![birthday_negative](images/midjourney_birthday_party_with_negative_prompt.png)
 <p align="center">Prompt : birthday party -no cake</p>
+
+### Prompt weighting
+
+specify the importance of different words or phrases in the input prompt. By assigning weights to certain keywords or phrases, users can influence the direction and content of the generated image.
+
+**Note**: The total weight of a prompt must be positive, otherwise the prompt will be invalid.
+
+### Aspect ratio
+
+This additional parameter, denotes by **–-aspect** or **–-ar**, dictates the shape of the resulting image and can influence the image composition by alot. Users can choose from a variety of aspect ratios, such as landscape, portrait, or square, depending on their needs. The available ratio range for each version is listed below:
+
+| 4c | 4a or 4b | 3 | test/testp | niji  |
+|:-:|:-:|:-:|:-:|:-:|
+| 1:2 to 2:1 | Only 1:1, 2:3 or 3:2 | 5:2 to 2:5 | 3:2 to 2:3 | 1:2 to 2:1 |
+
+### Quality
+
+This paremeter allows you to control the level of detail and complexity in the generated image. Higher quality settings result in more detailed and intricate images, while lower quality settings produce simpler and more abstract ones.
+
+| ![quality1](images/midjourney_quality_1.png) | ![quality2](images/midjourney_quality_2.png)  |
+|:-:|:-:|
+| --q 1 | --q 2 |
+
+The default quality is set to 1, and there are other options such as 0.25, 0.5 and 2. Quality option can be faily useful when you want to draft images and test how the composition will look like by reducing the processing time and generation cost.
+
+### Stylize
+
+The Stylize parameter, denoted by the **–stylize** or **–s** parameter, influences how strongly the bot applies its training in artistic color, composition, and forms. By adjusting the Stylize parameter, users can create images that are both true to the prompt and artistically compelling.
+
+![style1](images/midjourney_style1_pumpkin.png)
+![style2](images/midjourney_style2_pumpkin.png)
+
+Low Stylization values produce images that closely match the prompt but are less artistic. High Stylization values create images that are very artistic but less connected to the prompt.
 
 ### Upscale
 
@@ -119,21 +164,21 @@ Midjourney generates a grid of low-resolution image options for each generation 
   
 - **Upanime**: an alternative upscaler specifically trained to work with the **Niji** Midjourney Model.
 
-### Seed
+### Other parameters
 
-The seed number is a critical component of the Midjourney bot’s algorithm. The seed number creates a field of visual noise that serves as a starting point for generating the initial image grids. While seed numbers are generated randomly for each image, users can also specify a particular seed number using the **–seed** parameter.
+- **chaos**: Ranging between 0 to 100. The higher the value, the resulting image will become more chaotic .
 
-![seed](images/midjourney_seed_cyberpunk_cat.png)
-<p align="center">Prompt : cyberpunk cat –seed 1071856 –q 2</p>
+| ![chaos50](images/midjourney_chaos_50.png) | ![chaos100](images/midjourney_chaos_100.png)  |
+|:-:|:-:|
+| --chaos 50 | --chaos 100 |
 
-### Stylize
+- **stop**: This parameter allows user the stop the generation process ar a specific percentage. With this stop parameter, you can stop the generation anywhere between 10 and 100. The earlier you stop the generation, the blurrier the result will be.
 
-The Stylize parameter, denoted by the **–stylize** or **–s** parameter, influences how strongly the bot applies its training in artistic color, composition, and forms. By adjusting the Stylize parameter, users can create images that are both true to the prompt and artistically compelling.
+### Default parameters
 
-![style1](images/midjourney_style1_pumpkin.png)
-![style2](images/midjourney_style2_pumpkin.png)
-
-Low Stylization values produce images that closely match the prompt but are less artistic. High Stylization values create images that are very artistic but less connected to the prompt.
+| Aspect Ratio | Chaos | Quality | Seed | Stop | Stylize |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1:1 | 0 | 1 | Random | 100 | 100 |
 
 ## Variations
 
