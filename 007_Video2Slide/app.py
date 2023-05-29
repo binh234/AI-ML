@@ -1,7 +1,7 @@
 import gradio as gr
 import os
-import glob
 import validators
+from imutils import paths
 from config import *
 from download_video import download_video
 from bg_modeling import capture_slides_bg_modeling
@@ -48,11 +48,11 @@ def process(
         output_dir_path, hash_size, hash_func, hash_queue_len, diff_threshold
     )
 
-    pdf_path = convert_slides_to_pdf(video_path, output_dir_path)
+    pdf_path = convert_slides_to_pdf(output_dir_path)
 
     # Remove unneccessary files
     os.remove(video_path)
-    for image_path in glob.glob(f"{output_dir_path}/*.jpg"):
+    for image_path in paths.list_images(output_dir_path):
         os.remove(image_path)
     return pdf_path
 

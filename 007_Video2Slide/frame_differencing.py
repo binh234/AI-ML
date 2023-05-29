@@ -40,7 +40,7 @@ def capture_slides_frame_diff(
 
         screenshots_count += 1
 
-        filename = f"{screenshots_count:03}.lpg"
+        filename = f"{screenshots_count:03}.jpg"
         out_file_path = os.path.join(output_dir_path, filename)
         print(f"Saving file at: {out_file_path}")
 
@@ -68,7 +68,6 @@ def capture_slides_frame_diff(
 
             if p_non_zero >= MIN_PERCENT_THRESH and not capture_frame:
                 capture_frame = True
-
             elif capture_frame:
                 frame_elapsed += 1
 
@@ -78,11 +77,11 @@ def capture_slides_frame_diff(
 
                 screenshots_count += 1
 
-                filename = f"{screenshots_count:03}.png"
+                filename = f"{screenshots_count:03}.jpg"
                 out_file_path = os.path.join(output_dir_path, filename)
                 print(f"Saving file at: {out_file_path}")
 
-                cv2.imwrite(out_file_path, frame)
+                cv2.imwrite(out_file_path, frame, [cv2.IMWRITE_JPEG_QUALITY, 75])
 
         prev_frame = curr_frame
 

@@ -128,7 +128,7 @@ if __name__ == "__main__":
         )
 
     if args.convert_to_pdf:
-        convert_slides_to_pdf(video_path, output_dir_path)
+        convert_slides_to_pdf(output_dir_path)
 
     # if temp_file:
     #     os.remove(video_path)

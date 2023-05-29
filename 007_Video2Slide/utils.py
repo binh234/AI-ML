@@ -3,7 +3,7 @@ import re
 import cv2
 import shutil
 import img2pdf
-import glob
+from imutils import paths
 
 # PIL can also be used to convert the image set into PDFs.
 # However, using PIL requires opening each of the images in the set.
@@ -46,17 +46,17 @@ def create_output_directory(video_path, output_path, type_bgsub):
     return output_dir_path
 
 
-def convert_slides_to_pdf(video_path, output_path):
-    pdf_file_name = video_path.rsplit(os.sep)[-1].split(".")[0] + ".pdf"
-    output_pdf_path = os.path.join(output_path, pdf_file_name)
+def convert_slides_to_pdf(img_dir, output_path=None):
+    if output_path == None:
+        pdf_file_name = os.path.dirname(img_dir) + ".pdf"
+        output_path = os.path.join(output_path, pdf_file_name)
+        print("Output PDF Path:", output_path)
 
-    print("Output PDF Path:", output_pdf_path)
     print("Converting captured slide images to PDF...")
-
-    with open(output_pdf_path, "wb") as f:
-        f.write(img2pdf.convert(sorted(glob.glob(f"{output_path}/*.jpg"))))
+    with open(output_path, "wb") as f:
+        f.write(img2pdf.convert(sorted(paths.list_images(img_dir))))
 
     print("PDF Created!")
     print("***" * 10, "\n")
 
-    return output_pdf_path
+    return output_path
