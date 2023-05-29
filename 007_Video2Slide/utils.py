@@ -47,9 +47,13 @@ def create_output_directory(video_path, output_path, type_bgsub):
 
 
 def convert_slides_to_pdf(img_dir, output_path=None):
+    if not os.path.isdir(img_dir):
+        print("The image directory doesn't exist!")
+        return
+    
     if output_path == None:
-        pdf_file_name = os.path.dirname(img_dir) + ".pdf"
-        output_path = os.path.join(output_path, pdf_file_name)
+        pdf_file_name = os.path.basename(img_dir) + ".pdf"
+        output_path = os.path.join(img_dir, pdf_file_name)
         print("Output PDF Path:", output_path)
 
     print("Converting captured slide images to PDF...")
