@@ -132,6 +132,22 @@ optional arguments:
   --convert_to_pdf      flag to convert the entire image set to pdf or not
 ```
 
+If you want to manually remove some images before generating final PDF file, you can use the `convert_to_pdf.py` script later to convert the entire image set to pdf
+
+```bash
+usage: convert_to_pdf.py [-h] [-f FOLDER] [-o OUT_PATH]
+
+This script is used to convert video frames into slide PDFs.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FOLDER, --folder FOLDER
+                        Path to the image folder
+  -o OUT_PATH, --out_path OUT_PATH
+                        Path to the output PDF file. If None, the image
+                        directory will be used to store the output file.
+```
+
 ### Gradio App
 
 ```bash
@@ -154,6 +170,8 @@ We have seen how the various background estimation approaches produce decent res
 The KNN background estimation approach yields almost three times faster in FPS than its GMG counterpart. However, in some video samples, the KNN approach misses out on a few frames.
 
 The application yields almost perfect results for both lectures having voice-over presentations or facial camera movements. However, the only minus point is that the processing speed is not very fast, it will take about 40% of the original video length to complete. We can mitigate this by using more computing resources or a deep-learning-based approach with powerful GPU devices.
+
+For slide videos with full background animation similar to [this video](https://www.youtube.com/watch?v=YxlDoz_P4kc), the algorithm cannot extract the right frames ateaftthe animation ends. In that case, using Frame Differencing (`--type Frame_Diff`) will yield better results, but the results are still decent.
 
 ## References
 
