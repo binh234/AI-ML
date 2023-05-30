@@ -11,7 +11,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-o",
         "--out_path",
-        help="Path to the output PDF file",
+        help="Path to the output PDF file. If None, the image directory will be used to store the output file.",
         type=str,
     )
     args = parser.parse_args()
