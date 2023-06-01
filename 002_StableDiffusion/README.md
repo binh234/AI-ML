@@ -69,7 +69,7 @@ Generally, in all diffusion models, the text encoder is a **large pretrained tra
 
 Before the UNet, the encoder part of the autoencoder-decoder model converts the input image into its **latent representation**.
 
-Now, it’s important to remember that the UNet acts exclusively on the latent space and does not deal with the original image pixels. It is, of course, conditioned by the text caption. The process of adding the caption information to the latent space called **text conditioning**. Besides text conditioning, we can also condition the same latent space with semantic maps or other images.
+Now, it's important to remember that the UNet acts exclusively on the latent space and does not deal with the original image pixels. It is, of course, conditioned by the text caption. The process of adding the caption information to the latent space called **text conditioning**. Besides text conditioning, we can also condition the same latent space with semantic maps or other images.
 
 Not just text conditioning, the latent information also goes through a noise addition step called diffusion process, as discussed above.
 
@@ -101,7 +101,7 @@ The **QKV** blocks represent the cross-attention from the Transformer model. The
 
 ## Inference
 
-During inference, we don’t have an image with us initially. Instead, we have to generate one using a text prompt. Also, we do not need the encoder part of the autoencoder-decoder network. This boils down the inference components to the following:
+During inference, we don't have an image with us initially. Instead, we have to generate one using a text prompt. Also, we do not need the encoder part of the autoencoder-decoder network. This boils down the inference components to the following:
 
 - The pretrained text encoder.
 - The UNet noise predictor.
