@@ -83,7 +83,7 @@ As we can see, the inference process is quite simple. We just need an input imag
 
 The final image that InstructPix2Pix generates is a combination of the text prompt and the input image. During inference, we need a way to tell the model where to focus more – the image or text.
 
-This is achieved through Classifier-free guidance which weighs over two conditional inputs. Let’s call these S_T and S_I for the text and input image, respectively.
+This is achieved through Classifier-free guidance which weighs over two conditional inputs. Let's call these S_T and S_I for the text and input image, respectively.
 
 During inference, guiding the more through S_T will condition the final image closer to the prompt. Similarly, instructing the model more through S_I will make the final image closer to the input image.
 
