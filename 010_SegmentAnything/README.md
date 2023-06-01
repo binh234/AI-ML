@@ -2,6 +2,20 @@
 
 Foundation models in Artificial Intelligence are becoming increasingly important. The term started picking up pace in the field of NLP and now, with the Segment Anything Model, they are slowly getting into the world of computer vision. Segment Anything is a project by Meta to build a starting point for foundation models for image segmentation.
 
+## Table of Contents
+
+- [Segment Anything – A Foundation Model for Image Segmentation](#segment-anything--a-foundation-model-for-image-segmentation)
+  - [Table of Contents](#table-of-contents)
+  - [What is the Segment Anything Project?](#what-is-the-segment-anything-project)
+  - [Segment Anything Model (SAM)](#segment-anything-model-sam)
+  - [SAM Architecture](#sam-architecture)
+    - [Image Encoder](#image-encoder)
+    - [Prompt Encoder](#prompt-encoder)
+  - [Segment Anything Dataset](#segment-anything-dataset)
+  - [Models available](#models-available)
+  - [Inference using SAM](#inference-using-sam)
+  - [References](#references)
+
 ## What is the Segment Anything Project?
 
 Segment Anything is a new project by Meta to build two major components:
