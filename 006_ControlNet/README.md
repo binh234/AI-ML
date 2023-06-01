@@ -111,7 +111,7 @@ An approach like this works better when the model needs to learn a very specific
 
 There are various models of ControlNet according to the datasets and implementations. These include Canny Edge, Hough Line, Semantic Segmentation, and many more.
 
-What’s interesting about these implementations is how we provide input and then condition the inputs, and get the outputs.
+What's interesting about these implementations is how we provide input and then condition the inputs, and get the outputs.
 
 For example, in the case of using the Canny Edge ControlNet model, we do not give a Canny Edge image to the model.
 
@@ -125,12 +125,12 @@ The following figure shows the steps for using the Canny ControlNet model.
 
 ![canny-example](images/controlnet-canny-intermediate-steps.png)
 
-The most interesting part about all this is that we don’t give a prompt to get an output. ControlNet tries to guess an output from the intermediate image in case we do not provide a prompt.
+The most interesting part about all this is that we don't give a prompt to get an output. ControlNet tries to guess an output from the intermediate image in case we do not provide a prompt.
 
 For prompt experiments, ControlNet supports the following options:
 
 - No user prompt
-- A default prompt like “a professional, detailed, high-quality image”
+- A default prompt like "a professional, detailed, high-quality image"
 - Automatic prompt using [BLIP](https://github.com/salesforce/BLIP)
 - Finally, a user prompt
 
@@ -144,7 +144,7 @@ The above result shows that even without giving a prompt, the ControlNet canny m
 
 Using the automatic prompt method improves the results to a good extent.
 
-What’s more interesting is that once we have the Canny edge of a person, we can instruct the ControlNet model to generate an image of either a man or a woman. A similar thing occurs in the case of user prompts, where the model recreates the same image but swaps the man with a woman.
+What's more interesting is that once we have the Canny edge of a person, we can instruct the ControlNet model to generate an image of either a man or a woman. A similar thing occurs in the case of user prompts, where the model recreates the same image but swaps the man with a woman.
 
 Here is another example of the Canny ControlNet model which can change the background with ease.
 
