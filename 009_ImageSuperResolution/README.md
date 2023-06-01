@@ -28,7 +28,7 @@ The resolution of an image is the number of pixels displayed per square inch (PP
 
 For example, when you zoom in on a digital image, you see that the image starts to blur. This is because the pixel density in the zoomed region is just linear interpolation which is not enough to represent a clear image.
 
-Here’s an example of SR aiming to obtain the HR image when given an LR image:
+Here's an example of SR aiming to obtain the HR image when given an LR image:
 
 ![lr-hr](images/low_resoultion_with_high_resolution.png)
 
@@ -66,7 +66,7 @@ Peak Signal-to-Noise Ratio or PSNR is an objective metric that measures the qual
 
 ![psnr](images/psnr.png)
 
-Here, MSE represents the pixel-wise Mean Squared Error between the images, and “M” is the maximum possible pixel value in an image (for 8-bit RGB images, we are used to M=255). The higher the value of PSNR (in decibels/dB), the better the reconstruction quality.
+Here, MSE represents the pixel-wise Mean Squared Error between the images, and "M" is the maximum possible pixel value in an image (for 8-bit RGB images, we are used to M=255). The higher the value of PSNR (in decibels/dB), the better the reconstruction quality.
 
 ### SSIM
 
@@ -165,7 +165,7 @@ Thus, reducing the requirement of labeled data for solving the SR problem has be
 
 Semi-Supervised Learning is a paradigm where, in a large dataset, only a small percentage of data is labeled. That is, deep models have access to a large amount of unstructured data along with a small set of labeled data to train the network.
 
-One such approach was proposed in this [paper](https://link.springer.com/chapter/10.1007/978-3-030-58523-5_35), where the authors used only 10-20% labeled data. The authors taking insights from the Consistency Regularization literature, introduce a regularization term over the unsupervised data called Transformation Consistency Regularization (TCR), which makes sure the model’s prediction for a geometric transform of an image sample is consistent with the geometric transformation of the model’s reconstruction of the image.
+One such approach was proposed in this [paper](https://link.springer.com/chapter/10.1007/978-3-030-58523-5_35), where the authors used only 10-20% labeled data. The authors taking insights from the Consistency Regularization literature, introduce a regularization term over the unsupervised data called Transformation Consistency Regularization (TCR), which makes sure the model's prediction for a geometric transform of an image sample is consistent with the geometric transformation of the model's reconstruction of the image.
 
 ![semi-supervised](images/semi-supervise.jpg)
 
@@ -175,7 +175,7 @@ Few-Shot Learning is a meta-learning mechanism (meta-learning means learning to 
 
 The authors introduced a Distortion Relation Network (DRN) to learn the expected distortion-relation embeddings. To make the DRN general for arbitrary image SR, they designed a prior knowledge memory bank to store the learnable distortion-relation from seen auxiliary tasks (i.e., synthetic distortions using degradation functions). Thus, given an arbitrary real distorted sample, it can traverse the prior knowledge memory bank to acquire the needed distortion embeddings.
 
-Then similarities between the distortions are drawn using cosine similarity, and a “Distortion-Relation guided Transfer Learning” (DRTL) network proposed by the authors is used for obtaining the final super-resolved output.
+Then similarities between the distortions are drawn using cosine similarity, and a "Distortion-Relation guided Transfer Learning" (DRTL) network proposed by the authors is used for obtaining the final super-resolved output.
 
 ![drn-arch](images/drn_arch.jpg)
 
