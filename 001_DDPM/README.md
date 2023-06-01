@@ -59,7 +59,7 @@ In DDPMs, the authors use a UNet-shaped deep neural network which takes in as in
 1. The input image at any stage of the reverse process.
 2. The timestep of the input image.
 
-From the usual UNet architecture, the authors replaced the original double convolution at each level with “Residual blocks” used in ResNet models.
+From the usual UNet architecture, the authors replaced the original double convolution at each level with "Residual blocks" used in ResNet models.
 
 **The architecture comprises 5 components:**
 
@@ -75,8 +75,8 @@ From the usual UNet architecture, the authors replaced the original double convo
 2. Each encoder stage comprises two residual blocks with convolutional downsampling except the last level.
 3. Each corresponding decoder stage comprises three residual blocks and uses 2x nearest neighbors with convolutions to upsample the input from the previous level.
 4. Each stage in the encoder path is connected to the decoder path with the help of skip connections.
-5. The model uses “Self-Attention” modules at a single feature map resolution.
-6. Every residual block in the model gets the inputs from the previous layer (and others in the decoder path) and the embedding of the current timestep. The timestep embedding informs the model of the input’s current position in the Markov chain.
+5. The model uses "Self-Attention" modules at a single feature map resolution.
+6. Every residual block in the model gets the inputs from the previous layer (and others in the decoder path) and the embedding of the current timestep. The timestep embedding informs the model of the input's current position in the Markov chain.
 
 ![DDPM_Arch](images/denoising-diffusion-probabilistic-models_UNet_model_architecture.png)
 
