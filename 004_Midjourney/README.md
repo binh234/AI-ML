@@ -1,6 +1,6 @@
 # Midjourney: From pixels to paintings
 
-Midjourney is an independent research lab that has been making waves in the artificial intelligence world with its eponymous AI program. The program is designed to create images from textual descriptions, much like [OpenAI’s DALL-E](https://openai.com/product/dall-e-2) and [Stable Diffusion](https://github.com/Stability-AI/stablediffusion). While the underlying technology is speculated to be based on Stable Diffusion, Midjourney’s creators have developed their unique style for the generated images that have garnered a lot of attention from both AI enthusiasts and artists alike.
+Midjourney is an independent research lab that has been making waves in the artificial intelligence world with its eponymous AI program. The program is designed to create images from textual descriptions, much like [OpenAI's DALL-E](https://openai.com/product/dall-e-2) and [Stable Diffusion](https://github.com/Stability-AI/stablediffusion). While the underlying technology is speculated to be based on Stable Diffusion, Midjourney's creators have developed their unique style for the generated images that have garnered a lot of attention from both AI enthusiasts and artists alike.
 
 ![showcases](images/midjourney_ai_art_showcase.jpg)
 <p align="center">Midjourney AI Art showcase</p>
@@ -67,7 +67,7 @@ Advanced prompts can include one or more image URLs, multiple text phrases, and 
 
 ## Midjourney Parameters
 
-Parameters are options added to a prompt that can change how an image generates in Midjourney. These parameters can change an image’s aspect ratios, switch between different Midjourney model versions, and alter which upscaler is used, among other things. Parameters are always added to the end of a prompt, and multiple parameters can be added to each prompt.
+Parameters are options added to a prompt that can change how an image generates in Midjourney. These parameters can change an image's aspect ratios, switch between different Midjourney model versions, and alter which upscaler is used, among other things. Parameters are always added to the end of a prompt, and multiple parameters can be added to each prompt.
 
 Basic parameters include aspect ratios, chaos, negative prompting, rendering quality, seed, stop, style, and stylize.
 
@@ -104,14 +104,14 @@ A model can be selected for a generation job by adding its respective parameter 
 
 ### Seed
 
-The seed number is a critical component of the Midjourney bot’s algorithm. The seed number creates a field of visual noise that serves as a starting point for generating the initial image grids. While seed numbers are generated randomly for each image, users can also specify a particular seed number using the **–seed** parameter to reproduce a work or use it as a comparision benchmark.
+The seed number is a critical component of the Midjourney bot's algorithm. The seed number creates a field of visual noise that serves as a starting point for generating the initial image grids. While seed numbers are generated randomly for each image, users can also specify a particular seed number using the **–seed** parameter to reproduce a work or use it as a comparision benchmark.
 
 ![seed](images/midjourney_seed_cyberpunk_cat.png)
 <p align="center">Prompt : cyberpunk cat –seed 1071856 –q 2</p>
 
 ### Negative prompt
 
-It is also essential to focus on what you want in the image instead of what you don’t want. If you don’t want a cake at a party, instead of saying “no cake” in the prompt, try advanced prompting using the “-no” parameter to put “no cake” as a negative prompt.
+It is also essential to focus on what you want in the image instead of what you don't want. If you don't want a cake at a party, instead of saying "no cake" in the prompt, try advanced prompting using the "-no" parameter to put "no cake" as a negative prompt.
 
 ![birthday_no_negative](images/midjourney_birthday_party_no_cake.png)
 <p align="center">Prompt : birthday party no cake</p>
