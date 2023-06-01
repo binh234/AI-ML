@@ -39,7 +39,7 @@ Image-to-image (Img2Img for short) is a method we can use to modify existing ima
 <p align="center">L – "air balloons, balloon festival, dark sky, bright stars, award-winning, 4k. Hd" <br />
 R – "Pixar, Disney pictures, air balloons, balloon festival, dark sky, bright stars, award-winning, 4k. Hd"</p>
 
-A use-case of Img2Img is Style Tranfer. In Style transfer, we take two images: one for content and one for style reference. A new image is generated that is a mixture of both: the first’s content in another’s style.
+A use-case of Img2Img is Style Tranfer. In Style transfer, we take two images: one for content and one for style reference. A new image is generated that is a mixture of both: the first's content in another's style.
 
 ![style transfer](images/diffusion-models-style-transfer.jpg)
 
