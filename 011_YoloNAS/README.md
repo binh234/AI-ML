@@ -46,4 +46,5 @@ You can view and run some example notebooks inside `notebooks` folder.
 ## References
 
 1. [YOLO-NAS by Deci Achieves State-of-the-Art Performance on Object Detection Using Neural Architecture Search](https://deci.ai/blog/yolo-nas-object-detection-foundation-model/)
-2. [SuperGradients github](https://github.com/Deci-AI/super-gradients)
+2. [A Comprehensive Review of YOLO: From YOLOv1 and Beyond](https://arxiv.org/pdf/2304.00501.pdf)
+3. [SuperGradients github](https://github.com/Deci-AI/super-gradients)
