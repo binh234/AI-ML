@@ -2,6 +2,30 @@
 
 **Small object detection** refers to the task of **identifying** and **localizing** objects that are relatively small in size within digital images. These objects typically have limited spatial extent and low pixel coverage, such as those with sizes ranging from a few pixels to a specific threshold.
 
+## Table of Contents
+
+- [SAHI: Slicing Aided Hyper Inference for Small Object Detection](#sahi-slicing-aided-hyper-inference-for-small-object-detection)
+  - [Table of Contents](#table-of-contents)
+  - [Applications of Small Object Detection](#applications-of-small-object-detection)
+  - [Small Object Detection challenges](#small-object-detection-challenges)
+    - [Limited Receptive Field](#limited-receptive-field)
+    - [Features Representation](#features-representation)
+    - [Scale Variation](#scale-variation)
+    - [Training Data Bias](#training-data-bias)
+    - [Localization Challenges](#localization-challenges)
+  - [Existing approaches for Small Object Detection](#existing-approaches-for-small-object-detection)
+    - [Image pyramid](#image-pyramid)
+    - [Sliding Window Approach](#sliding-window-approach)
+    - [Multi-scale Feature Extraction](#multi-scale-feature-extraction)
+    - [Data Augmentation](#data-augmentation)
+    - [Transfer Learning](#transfer-learning)
+  - [Slicing Aided Hyper Inference: Revolutionary Pipeline for Small Object Detection](#slicing-aided-hyper-inference-revolutionary-pipeline-for-small-object-detection)
+    - [Slicing Aided Fine Tuning](#slicing-aided-fine-tuning)
+    - [Slicing Aided Hyper Inference](#slicing-aided-hyper-inference)
+    - [Inference results](#inference-results)
+  - [Conculsions](#conculsions)
+  - [References](#references)
+
 ## Applications of Small Object Detection
 
 Accurate detection of small objects holds immense importance in various fields, enabling advancements in numerous applications. Some notable applications include:
@@ -107,6 +131,14 @@ But SAHI doesn't stop there. It also introduces a groundbreaking slicing-aided f
 - During NMS, consider boxes with **Intersection over Union** (IoU) ratios higher than a predefined matching threshold as matches. Discard results with detection probabilities lower than a threshold to retain the most confident and non-overlapping detections.
 
 ![sahi-inference](images/SAHI-2Slice-Aided-Hyper-Inference.png)
+
+### Inference results
+
+![car](images/cars_compare_sahi.png)
+
+![birds](images/birds_compare_sahi.png)
+
+![cars-evening](images/cars_evening_compare_sahi.png)
 
 ## Conculsions
 
