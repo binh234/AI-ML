@@ -14,6 +14,19 @@ Now, a new parameter-efficient finetuning technique has emerged, known as Low-ra
 
 In the subsequent sections, we will delve deeper into the concepts and techniques behind LoRA, exploring how it can enable more cost-effective and streamlined fine-tuning of large language models.
 
+## Table of Contents
+
+- [LoRA: Parameter-Efficient LLM Finetuning With Low-Rank Adaptation](#lora-parameter-efficient-llm-finetuning-with-low-rank-adaptation)
+  - [Table of Contents](#table-of-contents)
+  - [How does fine-tuning work?](#how-does-fine-tuning-work)
+  - [Low-rank adaption (LoRA)](#low-rank-adaption-lora)
+    - [Choosing the rank](#choosing-the-rank)
+    - [Implementing LoRA](#implementing-lora)
+    - [Parameter efficiency](#parameter-efficiency)
+    - [Reducing inference overhead](#reducing-inference-overhead)
+    - [Compare LoRA to other finetuning methods](#compare-lora-to-other-finetuning-methods)
+  - [References](#references)
+
 ## How does fine-tuning work?
 
 In a neural network, the weight matrix of a given layer is denoted as W. During fine-tuning, the weight update ΔW is calculated using regular backpropagation. Typically, this update is obtained by taking the negative gradient of the loss multiplied by the learning rate, as shown in the equation below:
