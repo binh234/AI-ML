@@ -161,6 +161,7 @@ The application will be available at [http://localhost:7680](http://localhost:76
 | Video file | Output |
 |---|---|
 | [https://www.youtube.com/watch?v=bfmFfD2RIcg](https://www.youtube.com/watch?v=bfmFfD2RIcg) | output_results/Neural Network In 5 Minutes.pdf  |
+| [https://www.youtube.com/watch?v=dA-NhCtrrVE](https://www.youtube.com/watch?v=dA-NhCtrrVE) | output_results/Low-rank Adaption of Large Language Models Explaining the Key Concepts Behind LoRA.pdf  |
 | sample_vids/react-in-5-minutes.mp4 | output_results/react-in-5-minutes.pdf |
 
 ## Scope for improvements
